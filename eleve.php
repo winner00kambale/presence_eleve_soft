@@ -1,6 +1,6 @@
 <?php require('db/database.php');
 // $date = date('Y-m-d');
-$rep=$db->query("SELECT * FROM `show_eleve`");
+$rep=$db->query("SELECT * FROM showeleve");
 ?>
 
 <link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png">
@@ -19,22 +19,17 @@ $rep=$db->query("SELECT * FROM `show_eleve`");
 	<link rel="stylesheet" type="text/css" href="static/src/plugins/datatables/css/dataTables.bootstrap4.min.css">
 	<link rel="stylesheet" type="text/css" href="static/src/plugins/datatables/css/responsive.bootstrap4.min.css">
 <link rel="stylesheet" type="text/css" href="static/vendors/styles/style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-119386393-1');
-</script>
 <?php include'_aside.php' ?>
 <div class="main-container">
     
     <div class="card-box mb-30">
         <div class="pd-10">
-            <!-- <a href="#" class="btn btn-info" style="border-radius: 15px;">+ Nouveau Elève</a> -->
             <h3 class="box-title">
                 <a class="btn btn-primary" href="new_eleve.php"><span
                     class="glyphicon glyphicon-add"></span>
@@ -47,6 +42,7 @@ $rep=$db->query("SELECT * FROM `show_eleve`");
                     <tr>
                         <th class="table-plus datatable-nosort">#</th>
                         <th>noms Elèves</th>
+                        <th>photo</th>
                         <th>genre</th>
                         <th>age</th>
                         <th>adresse</th>
@@ -62,6 +58,7 @@ $rep=$db->query("SELECT * FROM `show_eleve`");
                     <tr>
                         <td><?= $g['id']; ?></td>
                         <td><?= $g['Nom'].' '.$g['Postnom'].' '.$g['Prenom']; ?></td>
+                        <td><img class="img-circle" src="all/images/eleve/<?= $g['photo']; ?>" alt="" width=50></td>
                         <td><?= $g['sexe']; ?></td>
                         <td><?= $g['age']; ?></td>
                         <td><?= $g['adresse']; ?></td>
