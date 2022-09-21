@@ -1,6 +1,6 @@
 <?php
 require('db/database.php');
-if(isset($_POST['ajoutereleve'])) {
+if(isset($_POST['ajouterenseignant'])) {
 	$valid = 1;
     $error_message='';
     $success_message='';
@@ -157,7 +157,6 @@ if(isset($_POST['ajoutereleve'])) {
                                                 <option value="M">Masculin</option>
                                                 <option value="F">Feminin</option>
                                             </select>
-<!--                                            <input class="multisteps-form__input form-control" type="email" placeholder="Email"/>-->
                                         </div>
                                     </div>
                                     <div class="form-row mt-4">
@@ -173,31 +172,6 @@ if(isset($_POST['ajoutereleve'])) {
                                     </div>
                                 </div>
                             </div>
-                            <!--single form panel-->
-                            <!-- <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
-                                <h3 class="multisteps-form__title">Your Address</h3>
-                                <div class="multisteps-form__content">
-                                    <div class="form-row mt-4">
-                                        <div class="col">
-                                            <input class="multisteps-form__input form-control" type="text" name="nompere" required placeholder="saisir le nom du père"/>
-                                        </div>
-                                    </div>
-                                    <div class="form-row mt-4">
-                                        <div class="col">
-                                            <input class="multisteps-form__input form-control" type="text" name="nommere" required placeholder="saisir le nom de la mère"/>
-                                        </div>
-                                    </div>
-                                    <div class="form-row mt-4">
-                                        <div class="col">
-                                            <input class="multisteps-form__input form-control" type="text" name="fonction" required placeholder="saisir la fonction"/>
-                                        </div>
-                                    </div>
-                                    <div class="button-row d-flex mt-4">
-                                        <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
-                                        <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">Next</button>
-                                    </div>
-                                </div>
-                            </div> -->
                             <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
                                 <h3 class="multisteps-form__title">Telephone number</h3>
                                 <div class="multisteps-form__content">
@@ -209,8 +183,7 @@ if(isset($_POST['ajoutereleve'])) {
                                     </div>
                                     <div class="button-row d-flex mt-4">
                                         <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
-                                        <input name="ajoutereleve" type="submit" class="btn btn-success ml-auto"value="Send" />
-                                        <!-- <button class="btn btn-success ml-auto" type="submit" title="Send">Send</button> -->
+                                        <input name="ajouterenseignant" type="submit" class="btn btn-success ml-auto"value="Send" />
                                     </div>
                                 </div>
                             </div>

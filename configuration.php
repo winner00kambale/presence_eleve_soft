@@ -259,6 +259,7 @@ header('location:configuration.php');
                                           </select>
                                     </div>
                                     <input class="btn btn-primary" type="submit" value="Ajouter">
+                                    
                                   </form>
                                 </div>
                                 <div class="modal-footer">

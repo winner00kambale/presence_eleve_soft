@@ -69,23 +69,27 @@ $classe=$db->query('SELECT * FROM affclasse');
                                         </div>
                                         <div class="col-12 col-sm-6 mt-4 mt-sm-0">
                                         <label for="client">Année Scolaire</label>
-                                            <select name="annee" id="annee" class="form-control btn-round">
-                                                    <option value=""></option>
-                                                    <?php while($ann=$annee->fetch()){ ?>
+                                        <select class="custom-select2 form-control" name="state" style="width: 100%; height: 38px;">
+                                            <optgroup >
+                                                <option value=""></option>
+                                                <?php while($ann=$annee->fetch()){ ?>
                                                     <option value="<?php echo($ann['id']); ?> "><?php echo($ann['designation']); ?></option>
-                                                    <?php } ?>
-                                            </select>
+                                                <?php } ?>
+                                            </optgroup>
+                                          </select> 
                                         </div>
                                     </div>
                                     <div class="form-row mt-4">
                                         <div class="col-12 col-sm-6">
-                                        <label for="client">Classe et Option</label>
-                                            <select name="classe" id="classe" class="form-control btn-round">
-                                                    <option value=""></option>
-                                                    <?php while($class=$classe->fetch()){ ?>
+                                        <label for="client">Classe et Option</label> 
+                                          <select class="custom-select2 form-control" name="state" style="width: 100%; height: 38px;">
+                                            <optgroup >
+                                            <option value=""></option>
+                                                <?php while($class=$classe->fetch()){ ?>
                                                     <option value="<?php echo($class['id']); ?> "><?php echo($class['classe']); ?></option>
-                                                    <?php } ?>
-                                            </select>
+                                                <?php } ?>
+                                            </optgroup>
+                                          </select>                                         
                                         </div>
                                         <div class="col-12 col-sm-6 mt-4 mt-sm-0">
                                         <label for="client">Date jour</label>
