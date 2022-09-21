@@ -21,33 +21,24 @@ if(isset($_POST['ajoutereleve'])) {
 	if(empty($_POST['genre'])) {
 		$valid = 0;
 		$error_message.= 'Mettez le prenom';
-	} if(empty($_POST['datenaiss'])) {
+	} if(empty($_POST['fonction'])) {
 		$valid = 0;
 		$error_message.= 'Mettez la date de naissance';
-	}if(empty($_POST['nompere'])) {
-		$valid = 0;
-		$error_message.= 'Mettez le nom du pere';
-	}if(empty($_POST['nommere'])) {
-		$valid = 0;
-		$error_message.= 'Mettez le nom de la mere';
 	}if(empty($_POST['adresse'])) {
 		$valid = 0;
 		$error_message.= 'Mettez l\'adresse';
 	}if(empty($_POST['telephone'])) {
 		$valid = 0;
 		$error_message.= 'Mettez le numero du telephone';
-	}if(empty($_POST['fonction'])) {
-		$valid = 0;
-		$error_message.= 'Mettez la fonction';
 	}else {
 		//Check si email existe
-    	$statement = $db->prepare("SELECT * FROM t_eleve WHERE Nom=? and Postnom=? and Prenom=?");
+    	$statement = $db->prepare("SELECT * FROM `t_enseignant` WHERE nom=? and postnom=? and prenom=?");
 		$statement->execute(array($_POST['nom'],$_POST['postnom'],$_POST['prenom']));
 		$total = $statement->rowCount();							
     	if($total>=1) {
     		$valid = 0;
             echo "<div class='alert alert-warning' role='alert'>
-            L\'eleve existe deja dans la base de donnee
+            L\'enseignat existe deja dans la base de donnee
   </div>";
         	$error_message.= 'L\'eleve existe deja dans la base de donnee';
     	}
@@ -65,16 +56,16 @@ if(isset($_POST['ajoutereleve'])) {
             $valid = 0;
             $error_message.= 'Format de photo incorrect<br>';
         }else{
-		 move_uploaded_file( $photo_user_tmp, 'all/images/eleve/'.$file_name );	
+		 move_uploaded_file( $photo_user_tmp, 'all/images/enseignant/'.$file_name );	
 		}
     }else{
 	$file_name='avatar.jpg';
 	}
 
 	if($valid == 1) {
-	$sql = $db->prepare('INSERT INTO t_eleve(Nom, Postnom, Prenom, sexe, datenaiss, nompere, nommere, fonction, adresse, telephone, photo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-	$sql->execute(array($_POST['nom'], $_POST['postnom'],$_POST['prenom'],$_POST['genre'],$_POST['datenaiss'],
-    $_POST['nompere'], $_POST['nommere'],$_POST['fonction'],$_POST['adresse'],$_POST['telephone'],$file_name));
+	$sql = $db->prepare('INSERT INTO `t_enseignant`(nom, postnom, prenom, sexe, fonction, adresse, telephone, photo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
+	$sql->execute(array($_POST['nom'], $_POST['postnom'],$_POST['prenom'],$_POST['genre'],$_POST['fonction'],
+    $_POST['fonction'],$_POST['adresse'],$_POST['telephone'],$file_name));
     echo"
         <script>
             Swal.fire({
@@ -134,8 +125,8 @@ if(isset($_POST['ajoutereleve'])) {
                 <div class="row">
                     <div class="col-12 col-lg-8 ml-auto mr-auto mb-4">
                         <div class="multisteps-form__progress">
-                            <button class="multisteps-form__progress-btn js-active" type="button" title="User Info">Elève Infos</button>
-                            <button class="multisteps-form__progress-btn" type="button" title="Address">Addresse</button>
+                            <button class="multisteps-form__progress-btn js-active" type="button" title="User Info">Enseignant Infos</button>
+                            <!-- <button class="multisteps-form__progress-btn" type="button" title="Address">Addresse</button> -->
                             <button class="multisteps-form__progress-btn" type="button" title="Comments">Numero phone</button>
                         </div>
                     </div>
@@ -146,7 +137,7 @@ if(isset($_POST['ajoutereleve'])) {
                         <form class="multisteps-form__form" action="#" method="POST" enctype="multipart/form-data">
                             <!--single form panel-->
                             <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" data-animation="scaleIn">
-                                <h3 class="multisteps-form__title">Infos Elèves</h3>
+                                <h3 class="multisteps-form__title">Infos Enseignant</h3>
                                 <div class="multisteps-form__content">
                                     <div class="form-row mt-4">
                                         <div class="col-12 col-sm-6">
@@ -171,7 +162,7 @@ if(isset($_POST['ajoutereleve'])) {
                                     </div>
                                     <div class="form-row mt-4">
                                         <div class="col-12 col-sm-6">
-                                            <input class="multisteps-form__input form-control" type="date" name="datenaiss" placeholder="saisir la date de naissance" required/>
+                                            <input class="multisteps-form__input form-control" type="text" name="fonction" placeholder="saisir la fonction" required/>
                                         </div>
                                         <div class="col-12 col-sm-6 mt-4 mt-sm-0">
                                             <input class="multisteps-form__input form-control" type="text" name="adresse" placeholder="Adresse Q/Comm" required/>
@@ -183,7 +174,7 @@ if(isset($_POST['ajoutereleve'])) {
                                 </div>
                             </div>
                             <!--single form panel-->
-                            <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
+                            <!-- <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
                                 <h3 class="multisteps-form__title">Your Address</h3>
                                 <div class="multisteps-form__content">
                                     <div class="form-row mt-4">
@@ -206,7 +197,7 @@ if(isset($_POST['ajoutereleve'])) {
                                         <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">Next</button>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
                                 <h3 class="multisteps-form__title">Telephone number</h3>
                                 <div class="multisteps-form__content">
@@ -228,7 +219,6 @@ if(isset($_POST['ajoutereleve'])) {
                 </div>
                 <br>
             </div>
-<!--        </div>-->
     </div>
     </div>
 </div>

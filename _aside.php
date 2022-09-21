@@ -175,7 +175,6 @@
                         <li><a href="eleve.php">Elèves</a></li>
                         <li><a href="show_inscription.php">Inscription</a></li>
                         <li><a href="qr/">Presence</a></li>
-                        <li><a href="#">Rapport Reservation</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -183,8 +182,8 @@
                         <span class="micon dw dw-settings"></span><span class="mtext">Paramettres</span>
                     </a>
                     <ul class="submenu">
-                        <li><a href="configuration.php">Configuration</a></li>
-                        <li><a href="#">Utilisateur</a></li>
+                        <li><a href="enseignant.php">Enseignant</a></li>
+                        <li><a href="configuration.php">Configuration</a></li>  
                     </ul>
                 </li>
             </ul>
