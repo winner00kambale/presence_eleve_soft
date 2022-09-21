@@ -173,7 +173,7 @@
                     </a>
                     <ul class="submenu">
                         <li><a href="eleve.php">Elèves</a></li>
-                        <li><a href="show_inscription.php">Inscription</a></li>
+                        <li><a href="inscription.php">Inscription</a></li>
                         <li><a href="qr/">Presence</a></li>
                     </ul>
                 </li>

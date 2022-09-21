@@ -1,16 +1,22 @@
 <?php
 require('db/database.php');
-$id=$_GET['id'];
-$eleve=$db->query('SELECT * FROM `t_eleve` WHERE id=id');
-$eleve->execute([
-    'id'=>$id
-]);
-$elev=$eleve->fetch();
-    
+$eleve=$db->query('SELECT * FROM `t_eleve`');
 $annee=$db->query('SELECT * FROM `t_annee` order by id DESC');
-$classe=$db->query('SELECT * FROM affclasse');
+$classe=$db->query('SELECT * FROM affclasse'); 
 
-
+if(isset($_POST['state']) && isset($_POST['classe']) && isset($_POST['nom'])){
+    $el = $_POST['nom'];
+    $ann = $_POST['state'];
+    $cla = $_POST['classe'];
+    $stmt=$db->prepare("INSERT INTO t_inscription(datejour, ref_classe, ref_annee, ref_et) 
+    VALUES (CURDATE(), :cla, :ann, :el)");
+    $stmt->execute([
+      'cla'=>$cla,
+      'ann'=>$ann,
+      'el'=>$el
+  ]);
+  header('location:inscription.php');
+}
 
 ?>
 
@@ -56,16 +62,22 @@ $classe=$db->query('SELECT * FROM affclasse');
                 <!--form panels-->
                 <div class="row">
                     <div class="col-12 col-lg-8 m-auto">
-                        <form class="multisteps-form__form" action="#" method="POST" enctype="multipart/form-data">
+                        <form class="multisteps-form__form" action="#" method="POST">
                             <!--single form panel-->
                             <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" data-animation="scaleIn">
                                 <h3 class="multisteps-form__title">Inscription</h3>
                                 <div class="multisteps-form__content">
                                     <div class="form-row mt-4">
                                         <div class="col-12 col-sm-6">
-                                        <input type="hidden" name="id" value="<?php echo($elev['id']) ?>">
                                         <label for="eleve">Noms elève</label>
-                                        <input class="multisteps-form__input form-control" type="text" value=" <?php echo($elev['Nom'].'   '.$elev['Postnom'].'   '.$elev['Prenom']) ?>" name="nom" readonly/>
+                                        <select class="custom-select2 form-control" name="nom" style="width: 100%; height: 38px;">
+                                            <optgroup >
+                                                <option value=""></option>
+                                                <?php while($elev=$eleve->fetch()){ ?>
+                                                    <option value="<?php echo($elev['id']); ?> "><?php echo($elev['Nom'].'   '.$elev['Postnom'].'   '.$elev['Prenom']) ?></option>
+                                                <?php } ?>
+                                            </optgroup>
+                                          </select> 
                                         </div>
                                         <div class="col-12 col-sm-6 mt-4 mt-sm-0">
                                         <label for="client">Année Scolaire</label>
@@ -82,7 +94,7 @@ $classe=$db->query('SELECT * FROM affclasse');
                                     <div class="form-row mt-4">
                                         <div class="col-12 col-sm-6">
                                         <label for="client">Classe et Option</label> 
-                                          <select class="custom-select2 form-control" name="state" style="width: 100%; height: 38px;">
+                                          <select class="custom-select2 form-control" name="classe" style="width: 100%; height: 38px;">
                                             <optgroup >
                                             <option value=""></option>
                                                 <?php while($class=$classe->fetch()){ ?>
@@ -98,8 +110,7 @@ $classe=$db->query('SELECT * FROM affclasse');
                                     </div>
                                     <div class="button-row d-flex mt-4">
                                         <a class="btn btn-primary" href="show_inscription.php">Annuler</a>
-                                        <input name="ajoutereleve" type="submit" class="btn btn-success ml-auto"value="Inscrir" />
-                                        <!-- <button class="btn btn-success ml-auto" type="submit" title="Send">Send</button> -->
+                                        <input type="submit" class="btn btn-success ml-auto"value="Inscrir" />
                                     </div>
                                                         
                                 </div>
