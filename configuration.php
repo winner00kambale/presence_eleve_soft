@@ -47,6 +47,7 @@ header('location:configuration.php');
 <link rel="stylesheet" type="text/css" href="static/src/plugins/datatables/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" type="text/css" href="static/src/plugins/datatables/css/responsive.bootstrap4.min.css">
 <link rel="stylesheet" type="text/css" href="static/vendors/styles/style.css">
+<link rel="stylesheet" type="text/css" href="static/src/plugins/sweetalert2/sweetalert2.css">
 <link rel="stylesheet" href="tabs.css">
 
 
@@ -71,6 +72,9 @@ header('location:configuration.php');
                               <!--progress bar-->
                               <div class="row">
                               </div>
+                              <!-- <div class="max-width-200 mx-auto">
+								<button type="button" class="btn mb-20 btn-primary btn-block" id="sa-custom-position">Click me</button>
+							</div> -->
                               <!--form panels-->
                               <div class="row">
                                   <div class="col-12 col-lg-6 m-auto">
@@ -106,7 +110,6 @@ header('location:configuration.php');
                                 </h3>
                           </div>
                       </div>
-
                             <div class="modal fade" id="small-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-sm modal-dialog-centered">
                               <div class="modal-content">
@@ -120,7 +123,7 @@ header('location:configuration.php');
                                       <label for="designation">Designation</label>
                                       <input type="text" name="annee" id="annee" value="<?php echo($an['annee']) ?>" class="form-control btn-round" readonly>
                                     </div>
-                                    <input name="ajouterAnne" class="btn btn-primary" type="submit" value="Ajouter">
+                                    <input name="ajouterAnne" class="btn btn-primary" id="sa-custom-position" type="submit" value="Ajouter">
                                   </form>
                                 </div>
                                 <div class="modal-footer">
@@ -343,4 +346,6 @@ header('location:configuration.php');
 	<script src="static/vendors/scripts/process.js"></script>
 	<script src="static/vendors/scripts/layout-settings.js"></script>
 <script src="static/vendors/scripts/datatable-setting.js"></script></body>
+<script src="static/src/plugins/sweetalert2/sweetalert2.all.js"></script>
+	<script src="static/src/plugins/sweetalert2/sweet-alert.init.js"></script>
 <script src="tabs.js"></script>

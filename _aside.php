@@ -58,7 +58,7 @@
             <div class="dropdown">
                 <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
 						<span class="user-icon">
-							<img src="static/vendors/images/photo1.jpg" alt="img">
+							<img src="static/vendors/images/project-2.jpg" alt="img">
 						</span>
                     <span class="user-name">Winner's APP</span>
                 </a>

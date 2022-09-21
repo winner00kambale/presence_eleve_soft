@@ -51,6 +51,7 @@ $rep=$db->query("SELECT * FROM `t_enseignant`");
                         <th>adresse</th>
                         <th>telephone</th>
                         <th>fonction</th>
+                        <th>photo</th>
                         <th>Edit</th>
                     </tr>
                 </thead>
@@ -63,6 +64,7 @@ $rep=$db->query("SELECT * FROM `t_enseignant`");
                         <td><?= $g['adresse']; ?></td>
                         <td><?= $g['telephone']; ?></td>
                         <td><?= $g['fonction']; ?></td>
+                        <td><img class="img-circle" src="all/images/enseignant/<?= $g['photo']; ?>" alt="" width=50></td>
                         <td>
                             <a href="" class="fa fa-pencil mr-3" aria-hidden="true"></a>
                         </td>

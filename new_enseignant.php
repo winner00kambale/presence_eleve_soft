@@ -1,4 +1,5 @@
 <?php
+
 require('db/database.php');
 if(isset($_POST['ajouterenseignant'])) {
 	$valid = 1;
@@ -65,20 +66,38 @@ if(isset($_POST['ajouterenseignant'])) {
 	if($valid == 1) {
 	$sql = $db->prepare('INSERT INTO `t_enseignant`(nom, postnom, prenom, sexe, fonction, adresse, telephone, photo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
 	$sql->execute(array($_POST['nom'], $_POST['postnom'],$_POST['prenom'],$_POST['genre'],$_POST['fonction'],
-    $_POST['fonction'],$_POST['adresse'],$_POST['telephone'],$file_name));
-    echo"
-        <script>
-            Swal.fire({
-                title: 'Eleve Ajouté avec succes',
-                showClass: {
-                popup: 'animate__animated animate__fadeInDown'
-                },
-                hideClass: {
-                popup: 'animate__animated animate__fadeOutUp'
-                }
-            })
-          </script>
-    ";
+    $_POST['adresse'],$_POST['telephone'],$file_name));
+    
+            echo '
+                    <script type="text/javascript">
+
+                    $(document).ready(function(){
+
+                    swal({
+                        position: "top-end",
+                        type: "success",
+                        title: "Your work has been saved",
+                        showConfirmButton: false, 
+                        timer: 1500
+                    })
+                    });
+
+                    </script>
+        ';
+    
+    // echo"
+    //     <script>
+    //         Swal.fire({
+    //             title: 'Eleve Ajouté avec succes',
+    //             showClass: {
+    //             popup: 'animate__animated animate__fadeInDown'
+    //             },
+    //             hideClass: {
+    //             popup: 'animate__animated animate__fadeOutUp'
+    //             }
+    //         })
+    //       </script>
+    // ";
     // 	$success_message.= 'Eleve ajouté avec succes!';
 //     echo "<div class='alert alert-success' role='alert'>
 //     Eleve ajouté avec succes!
@@ -104,11 +123,12 @@ if(isset($_POST['ajouterenseignant'])) {
 <link rel="stylesheet" type="text/css" href="static/vendors/styles/icon-font.min.css">
 <link rel="stylesheet" type="text/css" href="static/vendors/styles/style.css">
 
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 
 <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet"><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
 <link rel="stylesheet" href="static/style.css">
+<link rel="stylesheet" type="text/css" href="static/src/plugins/sweetalert2/sweetalert2.css">
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
@@ -192,7 +212,7 @@ if(isset($_POST['ajouterenseignant'])) {
                 </div>
                 <br>
             </div>
-    </div>
+        </div>
     </div>
 </div>
 <!-- js -->
@@ -202,4 +222,6 @@ if(isset($_POST['ajouterenseignant'])) {
 <script src="static/vendors/scripts/layout-settings.js"></script>
 <script  src="static/script.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="static/src/plugins/sweetalert2/sweetalert2.all.js"></script>
+<script src="static/src/plugins/sweetalert2/sweet-alert.init.js"></script>
 <script src="static/vendors/scripts/dashboard.js"></script>
