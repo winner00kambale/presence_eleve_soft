@@ -1,10 +1,13 @@
-<?php session_start();?>
+<?php 
+session_start();
+
+?>
 <html>
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>QR Code | Log in</title>
+    <title>PRESENCE SOFT | QR</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" sizes="180x180" href="../static/vendors/images/apple-touch-icon.png">
@@ -20,6 +23,15 @@
     #divvideo {
         box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
     }
+    #div{
+        
+        color: #fff;
+        text-decoration: none;
+        padding-top:9px;
+        float: right;
+        font-size: 16px;
+        margin-right:9px;
+    }
     </style>
 </head>
 
@@ -31,11 +43,13 @@
             </div>
             <ul class="nav navbar-nav">
                 <li class="active"><a href="../index.php"><span class="glyphicon glyphicon-home"></span> Retour</a></li>
-
-
                 <li><a href="#"><span class="glyphicon glyphicon-time"></span> Actualisé</a></li>
             </ul>
-            <!--<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
+            <div id="div">
+                <th class="text-center">Welcome : <?php echo($_SESSION['user_name']) ?></th>
+            </div>
+            
+            <!-- <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> -->
 
         </div>
     </nav>
