@@ -35,6 +35,18 @@ if(isset($_POST['classe']) && isset($_POST['option_'])){
 ]);
 header('location:configuration.php');
 }
+if(isset($_POST['nom_']) && isset($_POST['username']) && isset($_POST['password'])){
+  $name = $_POST['nom_'];
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+  $stmt=$db->prepare("INSERT INTO `login`(`username`, `password`, `ref_enseignant`) VALUES (:username, :password_, :name_)");
+  $stmt->execute([
+    'username'=>$username,
+    'password_'=>$password,
+    'name_'=>$name
+]);
+header('location:configuration.php');
+}
 ?>
 
 <!-- Mobile Specific Metas -->
@@ -329,10 +341,10 @@ header('location:configuration.php');
                                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                 </div>
                                 <div class="modal-body">
-                                  <form action="">
+                                  <form action="#" method="POST">
                                     <div class="form-group">
                                       <label for="nom">Noms Enseignant</label>
-                                      <select class="custom-select2 form-control" name="nom" style="width: 100%; height: 38px;">
+                                      <select class="custom-select2 form-control" name="nom_" style="width: 100%; height: 38px;">
                                             <optgroup >
                                                 <option value=""></option>
                                                 <?php while($enseign=$enseignant->fetch()){ ?>
@@ -345,7 +357,7 @@ header('location:configuration.php');
                                       <label for="password">Password</label>
                                       <input type="password" name="password" id="password" class="form-control btn-round">
                                     </div>
-                                    <input class="btn btn-primary" type="button" value="Ajouter">
+                                    <input class="btn btn-primary" type="submit" value="Ajouter">
                                   </form>
                                 </div>
                                 <div class="modal-footer">  

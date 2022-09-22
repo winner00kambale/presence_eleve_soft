@@ -65,7 +65,7 @@ require('db/database.php');
 						<span class="user-icon">
 							<img src="all/images/enseignant/<?= $_SESSION['user_photo'] ?>" alt="img">
 						</span>
-                    <span class="user-name"><?php echo($_SESSION['user_name']) ?> S'APP</span>
+                    <span class="user-name"><?php echo($_SESSION['user_name']) ?>'S APP</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
                     <a class="dropdown-item" href="logout.php"><i class="dw dw-logout"></i> Log Out</a>
@@ -164,7 +164,7 @@ require('db/database.php');
     <div class="menu-block customscroll">
         <div class="sidebar-menu">
             
-            <a><h4 class="text-center">PRESENCE SOFT</h4> </a>
+            <!-- <a><h4 class="text-center">PRESENCE SOFT</h4> </a> -->
             
             <ul id="accordion-menu">
                 <li class="dropdown">
