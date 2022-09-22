@@ -72,10 +72,6 @@ header('location:configuration.php');
                               <!--progress bar-->
                               <div class="row">
                               </div>
-                              <!-- <div class="max-width-200 mx-auto">
-								<button type="button" class="btn mb-20 btn-primary btn-block" id="sa-custom-position">Click me</button>
-							</div> -->
-                              <!--form panels-->
                               <div class="row">
                                   <div class="col-12 col-lg-6 m-auto">
                                   <form class="multisteps-form__form" action="#" method="POST">

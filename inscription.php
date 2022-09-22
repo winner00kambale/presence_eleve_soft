@@ -2,7 +2,7 @@
 require('db/database.php');
 $eleve=$db->query('SELECT * FROM `t_eleve`');
 $annee=$db->query('SELECT * FROM `t_annee` order by id DESC');
-$classe=$db->query('SELECT * FROM affclasse'); 
+$classe=$db->query('SELECT * FROM getClasse'); 
 
 if(isset($_POST['state']) && isset($_POST['classe']) && isset($_POST['nom'])){
     $el = $_POST['nom'];
@@ -16,6 +16,13 @@ if(isset($_POST['state']) && isset($_POST['classe']) && isset($_POST['nom'])){
       'el'=>$el
   ]);
   header('location:inscription.php');
+//   echo '
+//   swal({
+//     title: "Auto close alert!",
+//     text: "I will close in 2 seconds.",
+//     timer: 2000
+//   });
+//   ';
 }
 
 ?>

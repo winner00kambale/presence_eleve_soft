@@ -1,4 +1,13 @@
+<?php
+session_start();
+require('db/database.php');
 
+
+if(!isset($_SESSION['user_id']))
+{
+    header('location:login.php');
+}
+?>
 
 	<!-- Site favicon -->
 	<link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png">
@@ -14,17 +23,7 @@
 	<link rel="stylesheet" type="text/css" href="static/vendors/styles/core.css">
 	<link rel="stylesheet" type="text/css" href="static/vendors/styles/icon-font.min.css">
 	<link rel="stylesheet" type="text/css" href="static/vendors/styles/style.css">
-
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-
-		gtag('config', 'UA-119386393-1');
-	</script>
-
+	
 <?php include'_aside.php' ?>
 	<div class="main-container">
 		<div class="pd-ltr-20">
@@ -37,9 +36,7 @@
 								<div id="chart"></div>
 							</div>
 							<div class="widget-data">
-								<!-- <div class="h4 mb-0">[[${countcli}]]</div>
-								<div class="weight-600 font-14">Clients</div>
-								<input id="idcli" type="hidden" th:value="${countcli}"/> -->
+							
 							</div>
 						</div>
 					</div>
@@ -51,9 +48,7 @@
 								<div id="chart2"></div>
 							</div>
 							<div class="widget-data">
-								<!-- <div class="h4 mb-0">[[${countchambre}]]</div>
-								<div class="weight-600 font-14">Chambres</div>
-								<input id="idcha" type="hidden" th:value="${countchambre}"/> -->
+								
 							</div>
 						</div>
 					</div>
@@ -65,9 +60,7 @@
 								<div id="chart3"></div>
 							</div>
 							<div class="widget-data">
-								<!-- <div class="h4 mb-0">[[${countreservation}]]</div>
-								<div class="weight-600 font-14">Reservations</div>
-								<input id="idres" type="hidden" th:value="${countreservation}"/> -->
+								
 							</div>
 						</div>
 					</div>
@@ -79,9 +72,7 @@
 								<div id="chart4"></div>
 							</div>
 							<div class="widget-data">
-								<!-- <div class="h4 mb-0">[[${countPayeBuydate}]]</div>
-								<div class="weight-600 font-12">Payem./Aujourd'hui</div>
-								<input id="idpaye" type="hidden" value="${countPayeBuydate}"/> -->
+								
 							</div>
 						</div>
 					</div>
@@ -103,16 +94,7 @@
 							</tr>
 							</thead>
 							<tbody>
-							<!-- <th:block th:each=" lib : ${chambre}">
-								<tr>
-									<td class="table-plus" style="text-align: center">[[${lib.id}]]</td>
-									<td style="text-align: center">[[${lib.name}]]</td>
-									<td style="text-align: center">[[${lib.designation}]]</td>
-									<td style="text-align: center">[[${lib.prix}]]</td>
-									<td style="text-align: center">[[${lib.devise}]]</td>
-									<td style="text-align: center;color: #a92222;font-size: 20px;">[[${lib.etat}]]</td>
-								</tr>
-							</th:block> -->
+							
 							</tbody>
 						</table>
 

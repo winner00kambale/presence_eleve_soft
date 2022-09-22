@@ -1,3 +1,8 @@
+<?php 
+session_start();
+require('db/database.php');
+?>
+
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeLeaf.org">
 <head>
@@ -60,10 +65,10 @@
 						<span class="user-icon">
 							<img src="static/vendors/images/project-2.jpg" alt="img">
 						</span>
-                    <span class="user-name">Winner's APP</span>
+                    <span class="user-name"><?php echo($_SESSION['user_name']) ?> S'APP</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                    <a class="dropdown-item" href=""><i class="dw dw-logout"></i> Log Out</a>
+                    <a class="dropdown-item" href="logout.php"><i class="dw dw-logout"></i> Log Out</a>
                 </div>
             </div>
         </div>
