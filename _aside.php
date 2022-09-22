@@ -20,7 +20,7 @@ require('db/database.php');
         <div class="header-search">
             <form>
                 <div class="form-group mb-0">
-                    <a><h4 class="text-center">PRESENCE SOFT</h4> </a>
+                    <!-- <a><h4 class="text-center">PRESENCE SOFT</h4> </a> -->
                     <div class="dropdown">
 
                         <div class="dropdown-menu dropdown-menu-right">
@@ -63,7 +63,7 @@ require('db/database.php');
             <div class="dropdown">
                 <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
 						<span class="user-icon">
-							<img src="static/vendors/images/project-2.jpg" alt="img">
+							<img src="all/images/enseignant/<?= $_SESSION['user_photo'] ?>" alt="img">
 						</span>
                     <span class="user-name"><?php echo($_SESSION['user_name']) ?> S'APP</span>
                 </a>
@@ -163,6 +163,9 @@ require('db/database.php');
     </div>
     <div class="menu-block customscroll">
         <div class="sidebar-menu">
+            
+            <a><h4 class="text-center">PRESENCE SOFT</h4> </a>
+            
             <ul id="accordion-menu">
                 <li class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle">

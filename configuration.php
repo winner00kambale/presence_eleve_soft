@@ -5,6 +5,8 @@ $annnee = $db->query('SELECT * FROM `t_annee`');
 $option = $db->query('SELECT * FROM `t_option`');
 $option1 = $db->query('SELECT * FROM `t_option`');
 $classe = $db->query('SELECT * FROM aff_classe');
+$enseignant = $db->query('SELECT * FROM `t_enseignant`');
+$enseignant1 = $db->query('SELECT * FROM aff_users ');
 $ann = $db->query('SELECT annee FROM AFF_ANEE');
 $an=$ann->fetch();
 if(isset($_POST['annee'])) {
@@ -284,13 +286,25 @@ header('location:configuration.php');
                                               <table class="table table-hoher table-striped table-bordered table-sm">
                                                     <thead>
                                                       <th>id</th>
-                                                      <th>nom</th>
+                                                      <th>noms enseignat</th>
+                                                      <th>photo</th>
                                                       <th>username</th>
                                                       <th>password</th>
                                                       <th>actions</th>
                                                     </thead>
                                                     <tbody>
-                                                      
+                                                    <?php while ($g = $enseignant1->fetch()) { ?>
+                                                      <tr>
+                                                          <td><?= $g['id']; ?></td>
+                                                          <td><?= $g['nom'].' '.$g['postnom'].' '.$g['prenom']; ?></td>
+                                                          <td><img class="rounded-circle" src="all/images/enseignant/<?= $g['photo']; ?>" alt="" width=50></td>
+                                                          <td><?= $g['username']; ?></td>
+                                                          <td><?= $g['password']; ?></td>
+                                                          <td>
+                                                              <a href="" class="fa fa-pencil mr-3" aria-hidden="true"></a>
+                                                          </td>
+                                                      </tr>
+                                                    <?php } ?> 
                                                     </tbody>
                                               </table>
                                               </div>
@@ -313,8 +327,15 @@ header('location:configuration.php');
                                 <div class="modal-body">
                                   <form action="">
                                     <div class="form-group">
-                                      <label for="nom">Nom</label>
-                                      <input type="text" name="nom" id="nom" class="form-control btn-round">
+                                      <label for="nom">Noms Enseignant</label>
+                                      <select class="custom-select2 form-control" name="nom" style="width: 100%; height: 38px;">
+                                            <optgroup >
+                                                <option value=""></option>
+                                                <?php while($enseign=$enseignant->fetch()){ ?>
+                                                    <option value="<?php echo($enseign['id']); ?> "><?php echo($enseign['nom'].'   '.$enseign['postnom'].'   '.$enseign['prenom']) ?></option>
+                                                <?php } ?>
+                                            </optgroup>
+                                          </select>
                                       <label for="username">Username</label>
                                       <input type="text" name="username" id="username" class="form-control btn-round">
                                       <label for="password">Password</label>

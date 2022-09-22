@@ -1,10 +1,5 @@
-var cli =document.getElementById('idcli').value;
-var chambre = document.getElementById('idcha').value;
-var res = document.getElementById('idres').value;
-var nbr = document.getElementById('id1').value;
-var nbrpaye = document.getElementById('idpaye').value;
 var options = {
-	series: [cli],
+	series: [80],
 	grid: {
 		padding: {
 			top: 0,
@@ -74,7 +69,7 @@ var options = {
 };
 
 var options2 = {
-	series: [chambre],
+	series: [70],
 	grid: {
 		padding: {
 			top: 0,
@@ -144,7 +139,7 @@ var options2 = {
 };
 
 var options3 = {
-	series: [res],
+	series: [75],
 	grid: {
 		padding: {
 			top: 0,
@@ -214,7 +209,7 @@ var options3 = {
 };
 
 var options4 = {
-	series: [nbrpaye],
+	series: [85],
 	grid: {
 		padding: {
 			top: 0,
@@ -381,7 +376,7 @@ var options5 = {
 }
 
 var options6 = {
-	series: [nbr],
+	series: [73],
 	chart: {
 	  height: 350,
 	  type: 'radialBar',
@@ -402,8 +397,8 @@ var options6 = {
 			offsetY: 76,
 			fontSize: '22px',
 			color: undefined,
-			formatter: function (nbr) {
-			  return nbr + "";
+			formatter: function (val) {
+			  return val + "%";
 			}
 		  }
 		}
@@ -423,7 +418,7 @@ var options6 = {
 	stroke: {
 	  dashArray: 4
 	},
-	labels: ['reservations'],
+	labels: ['Achieve Goals'],
 };
 
 var chart = new ApexCharts(document.querySelector("#chart"), options);
@@ -459,7 +454,7 @@ $('document').ready(function(){
 			targets: "datatable-nosort",
 			orderable: false,
 		}],
-		"lengthMenu": [[8, 25, 50, -1], [8, 25, 50, "All"]],
+		"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
 		"language": {
 			"info": "_START_-_END_ of _TOTAL_ entries",
 			searchPlaceholder: "Search",

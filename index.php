@@ -22,91 +22,28 @@ if(!isset($_SESSION['user_id']))
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="static/vendors/styles/core.css">
 	<link rel="stylesheet" type="text/css" href="static/vendors/styles/icon-font.min.css">
+	<link rel="stylesheet" type="text/css" href="static/src/plugins/jvectormap/jquery-jvectormap-2.0.3.css">
 	<link rel="stylesheet" type="text/css" href="static/vendors/styles/style.css">
 	
 <?php include'_aside.php' ?>
-	<div class="main-container">
-		<div class="pd-ltr-20">
-
+<div class="main-container">
+		<div class="xs-pd-20-10 pd-ltr-20">
 			<div class="row">
-				<div class="col-xl-3 mb-30">
-					<div class="card-box height-100-p widget-style1">
-						<div class="d-flex flex-wrap align-items-center">
-							<div class="progress-data">
-								<div id="chart"></div>
-							</div>
-							<div class="widget-data">
-							
-							</div>
-						</div>
+				<div class="col-lg-7 col-md-12 col-sm-12 mb-30">
+					<div class="card-box pd-30 height-100-p">
+						<h4 class="mb-30 h4">Compliance Trend</h4>
+						<div id="compliance-trend" class="compliance-trend"></div>
 					</div>
 				</div>
-				<div class="col-xl-3 mb-30">
-					<div class="card-box height-100-p widget-style1">
-						<div class="d-flex flex-wrap align-items-center">
-							<div class="progress-data">
-								<div id="chart2"></div>
-							</div>
-							<div class="widget-data">
-								
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-3 mb-30">
-					<div class="card-box height-100-p widget-style1">
-						<div class="d-flex flex-wrap align-items-center">
-							<div class="progress-data">
-								<div id="chart3"></div>
-							</div>
-							<div class="widget-data">
-								
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-3 mb-30">
-					<div class="card-box height-100-p widget-style1">
-						<div class="d-flex flex-wrap align-items-center">
-							<div class="progress-data">
-								<div id="chart4"></div>
-							</div>
-							<div class="widget-data">
-								
-							</div>
-						</div>
+				<div class="col-lg-5 col-md-12 col-sm-12 mb-30">
+					<div class="card-box pd-30 height-100-p">
+						<h4 class="mb-30 h4">Records</h4>
+						<div id="chart" class="chart"></div>
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-xl-8 mb-30">
-					<div class="card-box height-100-p pd-20">
-						<h5 class="h5 mb-20 text-info">Liste des chambres libres</h5>
-						<table class="data-table table-hover table-sm">
-							<thead>
-							<tr class="text-info">
-								<th class="table-plus datatable-nosort">#</th>
-								<th>chambre</th>
-								<th>designation</th>
-								<th>prix</th>
-								<th>devise</th>
-								<th>etat</th>
-							</tr>
-							</thead>
-							<tbody>
-							
-							</tbody>
-						</table>
-
-					</div>
-				</div>
-				<div class="col-xl-4 mb-30">
-					<div class="card-box height-100-p pd-20">
-						<input id="id1" type="hidden" th:value="${countBydate}"/>
-						<h6 class="h6 mb-5 text-center text-info">Representation du rapport journalier de reservation</h6>
-						<div id="chart6"></div>
-					</div>
-				</div>
+			<div class="footer-wrap pd-20 mb-20 card-box">
+				DeskApp - Bootstrap 4 Admin Template By <a href="https://github.com/dropways" target="_blank">Ankit Hingarajiya</a>
 			</div>
 		</div>
 	</div>
@@ -115,7 +52,10 @@ if(!isset($_SESSION['user_id']))
 	<script src="static/vendors/scripts/script.min.js"></script>
 	<script src="static/vendors/scripts/process.js"></script>
 	<script src="static/vendors/scripts/layout-settings.js"></script>
-	<script src="static/src/plugins/apexcharts/apexcharts.min.js"></script>
-	<script src="static/src/plugins/datatables/js/jquery.dataTables.min.js"></script>
-	<script src="static/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
-	<script src="static/vendors/scripts/dashboard.js"></script>
+	<script src="static/src/plugins/jQuery-Knob-master/jquery.knob.min.js"></script>
+	<script src="static/src/plugins/highcharts-6.0.7/code/highcharts.js"></script>
+	<script src="static/src/plugins/highcharts-6.0.7/code/highcharts-more.js"></script>
+	<script src="static/src/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js"></script>
+	<script src="static/src/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+	<script src="static/vendors/scripts/dashboard2.js"></script>
+	

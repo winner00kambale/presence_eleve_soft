@@ -16,12 +16,9 @@ $rep=$db->query("SELECT * FROM showeleve");
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" type="text/css" href="static/vendors/styles/core.css">
 <link rel="stylesheet" type="text/css" href="static/vendors/styles/icon-font.min.css">
-	<link rel="stylesheet" type="text/css" href="static/src/plugins/datatables/css/dataTables.bootstrap4.min.css">
-	<link rel="stylesheet" type="text/css" href="static/src/plugins/datatables/css/responsive.bootstrap4.min.css">
+<link rel="stylesheet" type="text/css" href="static/src/plugins/datatables/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" type="text/css" href="static/src/plugins/datatables/css/responsive.bootstrap4.min.css">
 <link rel="stylesheet" type="text/css" href="static/vendors/styles/style.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
@@ -58,7 +55,7 @@ $rep=$db->query("SELECT * FROM showeleve");
                     <tr>
                         <td><?= $g['id']; ?></td>
                         <td><?= $g['Nom'].' '.$g['Postnom'].' '.$g['Prenom']; ?></td>
-                        <td><img class="img-circle" src="all/images/eleve/<?= $g['photo']; ?>" alt="" width=50></td>
+                        <td><img class="rounded-circle" src="all/images/eleve/<?= $g['photo']; ?>" alt="" width=50></td>
                         <td><?= $g['sexe']; ?></td>
                         <td><?= $g['age']; ?></td>
                         <td><?= $g['adresse']; ?></td>

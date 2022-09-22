@@ -16,22 +16,12 @@ $rep=$db->query("SELECT * FROM `t_enseignant`");
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" type="text/css" href="static/vendors/styles/core.css">
 <link rel="stylesheet" type="text/css" href="static/vendors/styles/icon-font.min.css">
-	<link rel="stylesheet" type="text/css" href="static/src/plugins/datatables/css/dataTables.bootstrap4.min.css">
-	<link rel="stylesheet" type="text/css" href="static/src/plugins/datatables/css/responsive.bootstrap4.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="static/src/plugins/datatables/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" type="text/css" href="static/src/plugins/datatables/css/responsive.bootstrap4.min.css">
 <link rel="stylesheet" type="text/css" href="static/vendors/styles/style.css">
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-119386393-1');
-</script>
 <?php include'_aside.php' ?>
 <div class="main-container">
     
@@ -50,11 +40,11 @@ $rep=$db->query("SELECT * FROM `t_enseignant`");
                     <tr>
                         <th class="table-plus datatable-nosort">#</th>
                         <th>noms Enseignant</th>
+                        <th>photo</th>
                         <th>genre</th>
                         <th>adresse</th>
                         <th>telephone</th>
                         <th>fonction</th>
-                        <th>photo</th>
                         <th>Edit</th>
                     </tr>
                 </thead>
@@ -62,12 +52,12 @@ $rep=$db->query("SELECT * FROM `t_enseignant`");
                 <?php while ($g = $rep->fetch()) { ?>
                     <tr>
                         <td><?= $g['id']; ?></td>
-                        <td><?= $g['nom'].' '.$g['postnom'].' '.$g['prenom']; ?></td>
+                        <td><?= $g['nom'].' '.$g['postnom'].' '.$g['prenom']; ?></td> 
+                        <td><img class="rounded-circle" src="all/images/enseignant/<?= $g['photo']; ?>" alt="" width=50></td>
                         <td><?= $g['sexe']; ?></td>
                         <td><?= $g['adresse']; ?></td>
                         <td><?= $g['telephone']; ?></td>
-                        <td><?= $g['fonction']; ?></td>
-                        <td><img class="img-circle" src="all/images/enseignant/<?= $g['photo']; ?>" alt="" width=50></td>
+                        <td><?= $g['fonction']; ?></td> 
                         <td>
                             <a href="" class="fa fa-pencil mr-3" aria-hidden="true"></a>
                         </td>
