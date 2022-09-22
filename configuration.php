@@ -39,6 +39,10 @@ header('location:configuration.php');
 
 <!-- Mobile Specific Metas -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="apple-touch-icon" sizes="180x180" href="static/vendors/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="static/vendors/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="static/vendors/images/favicon-16x16.png">
+
 
 <!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -80,7 +84,7 @@ header('location:configuration.php');
                                           <!--single form panel-->
                                           <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" data-animation="scaleIn">
                                               <div class="multisteps-form__content">
-                                              <table class="table table-hoher table-striped table-bordered table-sm">
+                                              <table class="table table-hover table-striped table-bordered table-sm">
                                                     <thead>
                                                       <th>id</th>
                                                       <th>designation</th>
@@ -143,7 +147,7 @@ header('location:configuration.php');
                                           <!--single form panel-->
                                           <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" data-animation="scaleIn">
                                               <div class="multisteps-form__content">
-                                              <table class="table table-hoher table-striped table-bordered table-sm">
+                                              <table class="table table-hover table-striped table-bordered table-sm">
                                                     <thead>
                                                       <th>id</th>
                                                       <th>designation</th>
@@ -208,7 +212,7 @@ header('location:configuration.php');
                                           <!--single form panel-->
                                           <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" data-animation="scaleIn">
                                               <div class="multisteps-form__content">
-                                              <table class="table table-hoher table-striped table-bordered table-sm">
+                                              <table class="table table-hover table-striped table-bordered table-sm">
                                                     <thead>
                                                       <th>id</th>
                                                       <th>designation</th>
@@ -283,7 +287,7 @@ header('location:configuration.php');
                                           <!--single form panel-->
                                           <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" data-animation="scaleIn">
                                               <div class="multisteps-form__content">
-                                              <table class="table table-hoher table-striped table-bordered table-sm">
+                                              <table class="table table-hover table-striped table-bordered table-sm">
                                                     <thead>
                                                       <th>id</th>
                                                       <th>noms enseignat</th>
@@ -359,10 +363,10 @@ header('location:configuration.php');
 <script src="static/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
 
 <script src="static/vendors/scripts/core.js"></script>
-	<script src="static/vendors/scripts/script.min.js"></script>
-	<script src="static/vendors/scripts/process.js"></script>
-	<script src="static/vendors/scripts/layout-settings.js"></script>
+<script src="static/vendors/scripts/script.min.js"></script>
+<script src="static/vendors/scripts/process.js"></script>
+<script src="static/vendors/scripts/layout-settings.js"></script>
 <script src="static/vendors/scripts/datatable-setting.js"></script></body>
 <script src="static/src/plugins/sweetalert2/sweetalert2.all.js"></script>
-	<script src="static/src/plugins/sweetalert2/sweet-alert.init.js"></script>
+<script src="static/src/plugins/sweetalert2/sweet-alert.init.js"></script>
 <script src="tabs.js"></script>

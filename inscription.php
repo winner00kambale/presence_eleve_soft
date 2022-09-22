@@ -41,10 +41,10 @@ if(isset($_POST['state']) && isset($_POST['classe']) && isset($_POST['nom'])){
 <link rel="stylesheet" type="text/css" href="static/vendors/styles/icon-font.min.css">
 <link rel="stylesheet" type="text/css" href="static/vendors/styles/style.css">
 
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script> -->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-<link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet"><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+<!-- <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet"><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'> -->
 <link rel="stylesheet" href="static/style.css">
 
 <!-- Global site tag (gtag.js) - Google Analytics -->

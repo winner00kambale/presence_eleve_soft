@@ -7,6 +7,9 @@
     <title>QR Code | Log in</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="../static/vendors/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/vendors/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../vendors/images/favicon-16x16.png">
 
     <script type="text/javascript" src="js/instascan.min.js"></script>
     <!-- DataTables -->

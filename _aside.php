@@ -20,7 +20,7 @@ require('db/database.php');
         <div class="header-search">
             <form>
                 <div class="form-group mb-0">
-                    <!-- <a><h4 class="text-center">PRESENCE SOFT</h4> </a> -->
+                    <a><h4 class="text-center">PRESENCE SOFT - APP</h4> </a>
                     <div class="dropdown">
 
                         <div class="dropdown-menu dropdown-menu-right">
