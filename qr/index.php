@@ -1,5 +1,9 @@
 <?php 
 session_start();
+if(isset($_POST['studentID'])){
+    $studentID =$_POST['studentID'];
+}
+
 if(!isset($_SESSION['user_id']))
 {
     header('location:../login.php');
@@ -59,7 +63,7 @@ if(!isset($_SESSION['user_id']))
     </nav>
     <div class="container">
         <div class="row">
-            <div class="col-md-4" style="padding:10px;background:#fff;border-radius: 5px;" id="divvideo">
+            <div class="col-md-3" style="padding:2;background:#fff;border-radius: 5px;" id="divvideo">
                 <center>
                     <p class="login-box-msg"> <i class="glyphicon glyphicon-camera"></i> TAP HERE</p>
                 </center>
@@ -91,22 +95,22 @@ if(!isset($_SESSION['user_id']))
 
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-5">
                 <form action="CheckInOut.php" method="post" class="form-horizontal"
-                    style="border-radius: 5px;padding:10px;background:#fff;" id="divvideo">
+                    style="border-radius: 5px;padding:5px;background:#fff;" id="divvideo">
                     <i class="glyphicon glyphicon-qrcode"></i> <label>SCAN QR CODE</label>
                     <p id="time"></p>
                     <input type="text" name="studentID" id="text" placeholder="scan qrcode" class="form-control"
                         autofocus>
                 </form>
                 <div style="border-radius: 5px;padding:10px;background:#fff;" id="divvideo">
+                <h4>Rapport de Présence</h4>
                     <table id="example2" class="table table-bordered">
                         <thead>
                             <tr>
-                                <td>Nom</td>
-                                <!-- <td>Identifiant</td> -->
-                                <td>Heure d'entree</td>
-                                <td>Heure de sortie</td>
+                                <td>Noms élève</td>
+                                <td>Heure d'entré</td>
+                                <td>telephone</td>
                                 <td>Date</td>
                             </tr>
                         </thead>
@@ -116,9 +120,9 @@ if(!isset($_SESSION['user_id']))
                         $username="root";
                         $password="";
                         $dbname="qrcodedb";
-                    
                         $conn = new mysqli($server,$username,$password,$dbname);
 						$date = date('Y-m-d');
+                        
                         if($conn->connect_error){
                             die("Connection failed" .$conn->connect_error);
                         }
@@ -133,8 +137,8 @@ if(!isset($_SESSION['user_id']))
                         ?>
                             <tr>
                                 <td><?php echo $row['Nom'].' '.$row['Postnom'].' '.$row['Prenom'];?></td>
-                                <td><?php echo $row['matricule'];?></td> 
-                                <td><?php echo $row['TIMEIN'];?></td>
+                                <td><?php echo $row['TIMEIN'];?></td> 
+                                <td><?php echo $row['telephone'];?></td>
                                 <td><?php echo $row['LOGDATE'];?></td>
                             </tr>
 
@@ -143,14 +147,20 @@ if(!isset($_SESSION['user_id']))
                         ?>
                         </tbody>
                     </table>
-
                 </div>
-
             </div>
-            
-
+            <div class="col-md-4">
+            <?php
+                $sql ="SELECT * FROM t_presence LEFT JOIN t_eleve ON t_presence.matriculle_eleve=t_eleve.matricule WHERE
+                t_presence.LOGDATE='$date' ORDER BY t_presence.TIMEIN desc LIMIT 1";
+                $query = $conn->query($sql);
+                while ($row = $query->fetch_assoc()){
+                ?>
+                <img width="100%" height="50%" style="border-radius:10px;" src="../all/images/eleve/<?= $row['photo']; ?>"
+                    alt="Photo de l'élève">
+                <?php } ?>
+            </div>
         </div>
-
     </div>
     <script>
     function Export() {

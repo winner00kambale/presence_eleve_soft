@@ -31,7 +31,7 @@
 				$sql = "UPDATE t_presence SET status='1' WHERE matriculle_eleve='$studentID' AND LOGDATE='$date'";
 				$query=$conn->query($sql);
 
-				$myAudioFile = "audio/96.wav";
+				$myAudioFile = "audio/am.wav";
                             echo '<audio autoplay="true" style="display:none;">
                                 <source src="'.$myAudioFile.'" type="audio/wav">
                             </audio>';

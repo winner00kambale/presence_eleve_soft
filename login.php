@@ -70,7 +70,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
                 <div class="login-box bg-white box-shadow border-radius-10">
                 <?php if(isset($_GET['error'])){echo "<div class='alert alert-danger text-white'>Erreur de la connexion verifier votre username et password svp !</div>";} ?>
                     <div class="login-title text-center">
-                        <img class="img-circle" src="static/vendors/images/project-2.jpg" style="width: 150px;height: 150px;">
+                        <img class="img-circle" src="static/vendors/images/product-img3.jpg" style="width: 150px;height: 150px;">
                     </div>
                     <h3 class="text-center text-primary">Autentification</h3>
                     <form method="post" action="">
