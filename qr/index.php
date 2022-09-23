@@ -1,5 +1,9 @@
 <?php 
 session_start();
+if(!isset($_SESSION['user_id']))
+{
+    header('location:../login.php');
+}
 
 ?>
 <html>
@@ -118,7 +122,7 @@ session_start();
                         if($conn->connect_error){
                             die("Connection failed" .$conn->connect_error);
                         }
-                           $sql ="SELECT * FROM attendance LEFT JOIN student ON attendance.STUDENTID=student.STUDENTID WHERE LOGDATE='$date' ORDER BY TIMEOUT desc";
+                           $sql ="SELECT * FROM t_presence LEFT JOIN t_eleve ON t_presence.matriculle_eleve=t_eleve.matricule WHERE LOGDATE='$date' ORDER BY TIMEIN desc";
                            $query = $conn->query($sql);
                            while ($row = $query->fetch_assoc()){
 
@@ -128,15 +132,11 @@ session_start();
                             </audio>';
                         ?>
                             <tr>
-                                <td><?php echo $row['LASTNAME'].' '.$row['FIRSTNAME'].' '.$row['MNAME'];?></td>
-                                <!-- <td><?php echo $row['STUDENTID'];?></td> -->
+                                <td><?php echo $row['Nom'].' '.$row['Postnom'].' '.$row['Prenom'];?></td>
+                                <td><?php echo $row['matricule'];?></td> 
                                 <td><?php echo $row['TIMEIN'];?></td>
-                                <td><?php echo $row['TIMEOUT'];?></td>
                                 <td><?php echo $row['LOGDATE'];?></td>
                             </tr>
-
-
-
 
                             <?php
                         }
@@ -147,19 +147,7 @@ session_start();
                 </div>
 
             </div>
-            <div class="col-md-4">
-                <?php
-                $sql ="SELECT * FROM attendance LEFT JOIN student ON attendance.STUDENTID=student.STUDENTID WHERE
-                LOGDATE='$date' ORDER BY TIMEOUT desc LIMIT 1";
-                $query = $conn->query($sql);
-                while ($row = $query->fetch_assoc()){
-                ?>
-
-
-                <img width="100%" height="50%" style="border-radius:10px;" src="img/<?php echo $row['PHOTO'];?>"
-                    alt="photo agent">
-                <?php } ?>
-            </div>
+            
 
         </div>
 

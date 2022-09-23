@@ -1,6 +1,11 @@
 <?php require('db/database.php');
+session_start();
 // $date = date('Y-m-d');
 $rep=$db->query("SELECT * FROM `t_enseignant`");
+if(!isset($_SESSION['user_id']))
+{
+    header('location:login.php');
+}
 ?>
 
 <link rel="apple-touch-icon" sizes="180x180" href="static/vendors/images/apple-touch-icon.png">

@@ -1,5 +1,6 @@
 <?php
 require('db/database.php');
+session_start();
 $eleve=$db->query('SELECT * FROM `t_eleve`');
 $annee=$db->query('SELECT * FROM `t_annee` order by id DESC');
 $classe=$db->query('SELECT * FROM getClasse'); 
@@ -23,6 +24,11 @@ if(isset($_POST['state']) && isset($_POST['classe']) && isset($_POST['nom'])){
 //     timer: 2000
 //   });
 //   ';
+}
+
+if(!isset($_SESSION['user_id']))
+{
+    header('location:login.php');
 }
 
 ?>

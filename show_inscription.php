@@ -1,5 +1,10 @@
 <?php
 require('db/database.php');
+if(!isset($_SESSION['user_id']))
+{
+    header('location:login.php');
+}
+session_start();
 $eleve=$db->query('SELECT * FROM `aff_eleve_non_inscrit` WHERE id NOT IN (SELECT t_inscription.ref_et FROM t_inscription)');
 $ann = $db->query('SELECT annee FROM AFF_ANEE');
 $an=$ann->fetch();

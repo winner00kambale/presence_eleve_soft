@@ -17,7 +17,7 @@
 		$date = date('Y-m-d');
 		$time = date('H:i:s A');
 
-		$sql = "SELECT * FROM student WHERE STUDENTID = '$studentID'";
+		$sql = "SELECT * FROM `t_eleve` WHERE matricule = '$studentID'";
 		$query = $conn->query($sql);
 
 		if($query->num_rows < 1){
@@ -25,10 +25,10 @@
 		}else{
 				$row = $query->fetch_assoc();
 				$id = $row['STUDENTID'];
-				$sql ="SELECT * FROM attendance WHERE STUDENTID='$id' AND LOGDATE='$date' AND STATUS='0'";
+				$sql ="SELECT * FROM `t_presence` WHERE matriculle_elev='$studentID' AND LOGDATE='$date' AND status='1'";
 				$query=$conn->query($sql);
 				if($query->num_rows>0){
-				$sql = "UPDATE attendance SET TIMEOUT='$time', STATUS='1' WHERE STUDENTID='$studentID' AND LOGDATE='$date'";
+				$sql = "UPDATE t_presence SET status='1' WHERE matriculle_eleve='$studentID' AND LOGDATE='$date'";
 				$query=$conn->query($sql);
 
 				$myAudioFile = "audio/96.wav";
@@ -36,26 +36,23 @@
                                 <source src="'.$myAudioFile.'" type="audio/wav">
                             </audio>';
 				
-				$_SESSION['success'] = 'Au revoir: '.$row['FIRSTNAME'].' '.$row['LASTNAME'];
+				$_SESSION['success'] = 'Au revoir: '.$row['Nom'].' '.$row['Postnom'];
 			}else{
-					$sql = "INSERT INTO attendance(STUDENTID,TIMEIN,LOGDATE,STATUS) VALUES('$studentID','$time','$date','0')";
+					// $sql = "INSERT INTO `t_presence`(`matriculle_eleve`, `TIMEIN`, `LOGDATE`, `status`) VALUES('$studentID','$time','$date','1')";
+					$sql = "CALL sp_presence('$studentID','$time','$date')";
 					if($conn->query($sql) ===TRUE){
 
-                      $myAudioFile = "audio/96.wav";
+                      $myAudioFile = "audio/ess.wav";
                             echo '<audio autoplay="true" style="display:none;">
                                 <source src="'.$myAudioFile.'" type="audio/wav">
                             </audio>';
 
-					 $_SESSION['success'] = 'Bienvenue: '.$row['FIRSTNAME'].' '.$row['LASTNAME'];
-
-                   
-
+					 $_SESSION['success'] = 'Bienvenue: '.$row['Nom'].' '.$row['Postnom'];
 			 }else{
 			  $_SESSION['error'] = $conn->error;
 		   }	
 		}
 	}
-
 	}else{
 		$_SESSION['error'] = 'Please scan your QR Code number';
 }

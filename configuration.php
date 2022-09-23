@@ -1,6 +1,11 @@
 
 <?php
 require('db/database.php');
+session_start();
+if(!isset($_SESSION['user_id']))
+{
+    header('location:login.php');
+}
 $annnee = $db->query('SELECT * FROM `t_annee`');
 $option = $db->query('SELECT * FROM `t_option`');
 $option1 = $db->query('SELECT * FROM `t_option`');

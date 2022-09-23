@@ -1,6 +1,11 @@
 <?php
 
 require('db/database.php');
+session_start();
+if(!isset($_SESSION['user_id']))
+{
+    header('location:login.php');
+}
 if(isset($_POST['ajouterenseignant'])) {
 	$valid = 1;
     $error_message='';
