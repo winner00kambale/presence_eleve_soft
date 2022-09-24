@@ -31,8 +31,6 @@ $an=$ann->fetch();
 
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<!-- 
-<link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet"><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'> -->
 <link rel="stylesheet" href="static/style.css">
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
