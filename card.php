@@ -106,7 +106,7 @@ $query=$stmt->fetch();
                                                                 require_once 'phpqrcode/qrlib.php';
                                                                 $path = 'qrimages/';
                                                                 $qrcode = $path.time().".png";
-                                                                QRcode::png($id, $qrcode, 'H', 4, 4);
+                                                                QRcode::png($matricule, $qrcode, 'H', 4, 4);
                                                                 echo "<img src ='".$qrcode."'>";
                                                             ?>
                                                         </div>

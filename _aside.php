@@ -193,6 +193,14 @@ require('db/database.php');
                         <li><a href="configuration.php">Configuration</a></li>  
                     </ul>
                 </li>
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle">
+                        <span class="micon dw dw-settings"></span><span class="mtext">Rapport</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="show_inscription.php">Rapport Inscription</a></li>  
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
