@@ -1,11 +1,12 @@
 <?php
+session_start();
 require('db/database.php');
 if(!isset($_SESSION['user_id']))
 {
     header('location:login.php');
 }
-session_start();
-$eleve=$db->query('SELECT * FROM `aff_eleve_non_inscrit` WHERE id NOT IN (SELECT t_inscription.ref_et FROM t_inscription)');
+
+$eleve=$db->query('SELECT * FROM carte_eleve');
 $ann = $db->query('SELECT annee FROM AFF_ANEE');
 $an=$ann->fetch();
 
@@ -49,7 +50,7 @@ $an=$ann->fetch();
                 <div class="row">
                     <div class="col-12 col-lg-8 ml-auto mr-auto mb-4">
                         <div class="multisteps-form__progress">
-                            <button class="multisteps-form__progress-btn js-active" type="button" title="User Info">Elèves Non Inscrits</button>
+                            <button class="multisteps-form__progress-btn js-active" type="button" title="User Info">Elèves Inscrits</button>
                         </div>
                     </div>
                 </div>
@@ -69,9 +70,10 @@ $an=$ann->fetch();
                                             <th class="table-plus datatable-nosort">#</th>
                                             <th>noms Elèves</th>
                                             <th>genre</th>
-                                            <th>age</th>
-                                            <th>adresse</th>
-                                            <th>telephone</th>
+                                            <th>matricule</th>
+                                            <th>classe</th>
+                                            <th>option_</th>
+                                            <th>année scolaire</th>
                                             <th>action</th>
                                         </tr>
                                     </thead>
@@ -81,11 +83,12 @@ $an=$ann->fetch();
                                             <td><?= $g['id']; ?></td>
                                             <td><?= $g['Nom'].' '.$g['Postnom'].' '.$g['Prenom']; ?></td>
                                             <td><?= $g['sexe']; ?></td>
-                                            <td><?= $g['age']; ?></td>
-                                            <td><?= $g['adresse']; ?></td>
-                                            <td><?= $g['telephone']; ?></td>
+                                            <td><?= $g['matricule']; ?></td>
+                                            <td><?= $g['classe']; ?></td>
+                                            <td><?= $g['option_']; ?></td>
+                                            <td><?= $g['annee']; ?></td>
                                             <td>
-                                                <a href="inscription.php?id=<?php echo($g['id']) ?>" class="fa fa-pencil mr-3" aria-hidden="true"></a>
+                                                <a href="card.php?matricule=<?php echo($g['matricule']) ?>" class="fa fa-print mr-3" aria-hidden="true"></a>
                                             </td>
                                         </tr>
                                     <?php } ?>
