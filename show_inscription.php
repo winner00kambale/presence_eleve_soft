@@ -54,7 +54,7 @@ $an=$ann->fetch();
                 </div>
                 <!--form panels-->
                 <div class="row">
-                    <div class="col-12 col-lg-10 m-auto">
+                    <div class="col-12 col-lg-11 m-auto">
                     <form class="multisteps-form__form" action="#" method="POST" enctype="multipart/form-data">
                             <!--single form panel-->
                             <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" data-animation="scaleIn">
@@ -101,6 +101,7 @@ $an=$ann->fetch();
                 <br>
             </div>
 <!--        </div>-->
+<br><br><br>
     </div>
     </div>
 </div>

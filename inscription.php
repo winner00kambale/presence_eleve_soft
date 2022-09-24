@@ -122,7 +122,7 @@ if(!isset($_SESSION['user_id']))
                                        </div>
                                     </div>
                                     <div class="button-row d-flex mt-4">
-                                        <a class="btn btn-primary" href="show_inscription.php">Annuler</a>
+                                        <a class="btn btn-primary" href="fpdf/tutorial/rapport.php">Annuler</a>
                                         <input type="submit" class="btn btn-success ml-auto"value="Inscrir" />
                                     </div>
                                                         

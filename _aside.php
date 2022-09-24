@@ -195,7 +195,7 @@ require('db/database.php');
                 </li>
                 <li class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle">
-                        <span class="micon dw dw-settings"></span><span class="mtext">Rapport</span>
+                        <span class="micon dw dw-file"></span><span class="mtext">Rapport</span>
                     </a>
                     <ul class="submenu">
                         <li><a href="show_inscription.php">Rapport Inscription</a></li>  
