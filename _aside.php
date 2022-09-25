@@ -186,19 +186,20 @@ require('db/database.php');
                 </li>
                 <li class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle">
+                        <span class="micon dw dw-file"></span><span class="mtext">Rapport</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="rapport_presence.php">Rapport Présence</a></li>
+                        <li><a href="show_inscription.php">Rapport Inscription</a></li>    
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle">
                         <span class="micon dw dw-settings"></span><span class="mtext">Paramettres</span>
                     </a>
                     <ul class="submenu">
                         <li><a href="enseignant.php">Enseignant</a></li>
                         <li><a href="configuration.php">Configuration</a></li>  
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="javascript:;" class="dropdown-toggle">
-                        <span class="micon dw dw-file"></span><span class="mtext">Rapport</span>
-                    </a>
-                    <ul class="submenu">
-                        <li><a href="show_inscription.php">Rapport Inscription</a></li>  
                     </ul>
                 </li>
             </ul>
