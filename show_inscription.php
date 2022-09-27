@@ -9,7 +9,8 @@ if(!isset($_SESSION['user_id']))
 $eleve=$db->query('SELECT * FROM carte_eleve');
 $ann = $db->query('SELECT annee FROM AFF_ANEE');
 $an=$ann->fetch();
-
+$classe=$db->query('SELECT * FROM getClasse');  
+$anne_scol=$db->query('SELECT * FROM `t_annee`');
 ?>
 
 <link rel="apple-touch-icon" sizes="180x180" href="static/vendors/images/apple-touch-icon.png">
@@ -40,13 +41,47 @@ $an=$ann->fetch();
 
 <div class="main-container">
     <div class="card-box mb-30">
-        <div class="container overflow-hidden"> <br>
+    <div class="pd-10">
+            <form action="rapport_inscrit.php" method="POST">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <label for="client">Classe et Option</label> 
+                                <select class="custom-select2 form-control" name="classe" style="width: 100%; height: 38px;">
+                                <optgroup>
+                                    <option value=""></option>
+                                        <?php while($class=$classe->fetch()){ ?>
+                                            <option value="<?php echo($class['classe']); ?> "><?php echo($class['classe']); ?></option>
+                                        <?php } ?>
+                                </optgroup>
+                                </select>  
+                        </div>
+                        <div class="col-lg-3">
+                                <label for="client">Année Scolaire</label> 
+                                <select class="custom-select2 form-control" name="annee" style="width: 100%; height: 38px;">
+                                <optgroup>
+                                    <option value=""></option>
+                                        <?php while($a=$anne_scol->fetch()){ ?>
+                                            <option value="<?php echo($a['designation']); ?> "><?php echo($a['designation']); ?></option>
+                                        <?php } ?>
+                                </optgroup>  
+                                </select>
+                        </div>
+                    </div>
+                </div>  
+                    <h3 class="box-title">
+                        <button type="submit" class="btn btn-primary" name="submit" target="_blank"><i class="fa fa-print"></i></button>
+                    </h3>
+            </form> 
+        </div>
+
+        <div class="container overflow-hidden">
             <h2 class="content__title"></h2>
             <!--multisteps-form-->
             <div class="multisteps-form">
                 <!--progress bar-->
                 <div class="row">
-                    <div class="col-12 col-lg-8 ml-auto mr-auto mb-4">
+                    <div class="col-12 col-lg-8 ml-auto mr-auto">
                         <div class="multisteps-form__progress">
                             <button class="multisteps-form__progress-btn js-active" type="button" title="User Info">Elèves Inscrits</button>
                         </div>

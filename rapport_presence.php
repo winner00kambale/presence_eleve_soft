@@ -58,8 +58,7 @@ if(!isset($_SESSION['user_id']))
                     <h3 class="box-title">
                         <button type="submit" class="btn btn-primary" name="submit" target="_blank"><i class="fa fa-print"></i></button>
                     </h3>
-            </form>
-            
+            </form> 
         </div>
         <div class="pb-20 m-3">
             <table class="data-table table hover multiple-select-row nowrap">
@@ -73,7 +72,6 @@ if(!isset($_SESSION['user_id']))
                         <th>date du jour</th>
                         <th>statut</th>
                         <th>heure d'arrivé</th>
-                        <th>Edit</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -87,10 +85,6 @@ if(!isset($_SESSION['user_id']))
                         <td><?= $g['LOGDATE']; ?></td>
                         <td><?= $g['statut']; ?></td>
                         <td><?= $g['heure']; ?></td>
-                        
-                        <td>
-                            <a href="" class="fa fa-pencil mr-3" aria-hidden="true"></a>
-                        </td>
                     </tr>
                 <?php } ?>
                 
