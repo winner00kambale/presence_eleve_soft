@@ -1,8 +1,10 @@
-<?php require('db/database.php');
+<?php 
+require('db/database.php');
 session_start();
 // $date = date('Y-m-d');
 $rep=$db->query("SELECT * FROM rapport_presenec");
 $classe=$db->query('SELECT * FROM getClasse');
+
 if(!isset($_SESSION['user_id']))
 {
     header('location:login.php');
@@ -33,17 +35,12 @@ if(!isset($_SESSION['user_id']))
     
     <div class="card-box mb-30">
         <div class="pd-10">
-            <!-- <h3 class="box-title">
-                <a class="btn btn-primary" href="#"><span
-                    class="glyphicon glyphicon-add"></span>
-                    + Nouveau</a>
-            </h3> -->
-            <form action="journalier.php" method="GET">
+            <form action="journalier.php" method="POST">
                 <div class="form-group">
                     <div class="row">
                         <div class="col-lg-3">
                             <label for=""> Date jour</label>
-                            <input type="text" name="date" id="date" class="form-control btn-round">
+                            <input type="date" name="date" id="date" class="form-control btn-round">
                         </div>
                         <div class="col-lg-3">
                             <label for="client">Classe et Option</label> 
@@ -51,18 +48,16 @@ if(!isset($_SESSION['user_id']))
                                     <optgroup>
                                     <option value=""></option>
                                         <?php while($class=$classe->fetch()){ ?>
-                                            <option value="<?php echo($class['id']); ?> "><?php echo($class['classe']); ?></option>
+                                            <option value="<?php echo($class['classe']); ?> "><?php echo($class['classe']); ?></option>
                                         <?php } ?>
                                     </optgroup>
-                                </select>
+                                </select>  
                         </div>
                     </div>
-                </div>
-                <h3 class="box-title">
-                <a class="btn btn-primary" href="journalier.php" type="submit" target="_blank"><span
-                    class="glyphicon glyphicon-add"></span>
-                    + Print</a>
-            </h3>
+                </div>  
+                    <h3 class="box-title">
+                        <button type="submit" class="btn btn-primary" name="submit" target="_blank"><i class="fa fa-print"></i></button>
+                    </h3>
             </form>
             
         </div>

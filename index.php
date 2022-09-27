@@ -43,7 +43,7 @@ if(!isset($_SESSION['user_id']))
 				</div>
 			</div>
 			<div class="footer-wrap pd-20 mb-20 card-box">
-				DeskApp - Bootstrap 4 Admin Template By <a href="https://github.com/dropways" target="_blank">Ankit Hingarajiya</a>
+			PRESENCE SOFT - APP By <a href="https://github.com/winner00kambale" target="_blank"> Winner Kambale</a>
 			</div>
 		</div>
 	</div>
