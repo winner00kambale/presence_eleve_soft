@@ -42,7 +42,7 @@ $anne_scol=$db->query('SELECT * FROM `t_annee`');
 <div class="main-container">
     <div class="card-box mb-30">
     <div class="pd-10">
-            <form action="rapport_inscrit.php" method="POST">
+            <form action="rapport_inscrit.php" method="POST" target="_blank">
                 <div class="form-group">
                     <div class="row">
                         <div class="col-lg-3">

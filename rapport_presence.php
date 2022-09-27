@@ -35,7 +35,7 @@ if(!isset($_SESSION['user_id']))
     
     <div class="card-box mb-30">
         <div class="pd-10">
-            <form action="journalier.php" method="POST">
+            <form action="journalier.php" method="POST" target="_blank">
                 <div class="form-group">
                     <div class="row">
                         <div class="col-lg-3">
