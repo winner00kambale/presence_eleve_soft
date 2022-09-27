@@ -16,7 +16,7 @@ if(isset($_POST['state']) && isset($_POST['classe']) && isset($_POST['nom'])){
       'ann'=>$ann,
       'el'=>$el
   ]);
-  header('location:inscription.php');
+  header('location:show_inscription.php');
 //   echo '
 //   swal({
 //     title: "Auto close alert!",
@@ -122,7 +122,7 @@ if(!isset($_SESSION['user_id']))
                                        </div>
                                     </div>
                                     <div class="button-row d-flex mt-4">
-                                        <a class="btn btn-primary" href="fpdf/tutorial/rapport.php">Annuler</a>
+                                        <a class="btn btn-primary" href="show_inscription.php">Annuler</a>
                                         <input type="submit" class="btn btn-success ml-auto"value="Inscrir" />
                                     </div>
                                                         
